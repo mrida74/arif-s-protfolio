@@ -34,7 +34,7 @@ function TypewriterName({ name }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      Hi, I'm <span className="text-orange-300 dark:text-purple-400">{display}</span>
+      Hi, I&apos;m <span className="text-orange-300 dark:text-purple-400">{display}</span>
       <span className="animate-pulse">|</span>
     </motion.h1>
   );
