@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex-1 flex items-center justify-between">
           <PortfolioLogo />
           <div className="flex-1 flex justify-center">
-            <PortfolioWatch />
+            {/* <PortfolioWatch /> */}
           </div>
         </div>
         <div className="flex items-center">

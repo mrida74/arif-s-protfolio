@@ -1,3 +1,13 @@
+/* Google Fonts: Inter and Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap');
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
