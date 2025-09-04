@@ -6,6 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import PortfolioLogo from "@/components/PortfolioLogo";
 import PortfolioWatch from "@/components/PortfolioWatch";
+import { Button } from "./ui/button";
 
 
 const navLinks = [
@@ -50,13 +51,13 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <ThemeToggle />
-            <button
+            <Button
               className="ml-2 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white"
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
               <HamburgerMenuIcon className="w-6 h-6" />
-            </button>
+            </Button>
           </div>
       </div>
     </div>

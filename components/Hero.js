@@ -1,32 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+import { useTypewriter } from "@/lib/utils/typewriter";
+
 function TypewriterName({ name }) {
-  const [display, setDisplay] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    let timeout;
-    if (!isDeleting && idx < name.length) {
-      timeout = setTimeout(() => {
-        setDisplay(name.slice(0, idx + 1));
-        setIdx(idx + 1);
-      }, 120);
-    } else if (isDeleting && idx > 0) {
-      timeout = setTimeout(() => {
-        setDisplay(name.slice(0, idx - 1));
-        setIdx(idx - 1);
-      }, 80);
-    } else if (!isDeleting && idx === name.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 1200);
-    } else if (isDeleting && idx === 0) {
-      timeout = setTimeout(() => setIsDeleting(false), 600);
-    }
-    return () => clearTimeout(timeout);
-  }, [name, idx, isDeleting]);
+  const display = useTypewriter(name);
   return (
     <motion.h1
       className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg dark:text-white whitespace-nowrap overflow-hidden text-ellipsis"

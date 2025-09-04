@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -14,10 +16,28 @@ const ContactForm = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setSubmitted(true);
-    // Add toast notification here
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+        // Optionally show success toast
+        alert("Message sent successfully!");
+      } else {
+        // Optionally show error toast
+        setSubmitted(false);
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setSubmitted(false);
+      alert("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -32,10 +52,25 @@ const ContactForm = () => {
             <Button type="submit" className="bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold dark:bg-gradient-to-r dark:from-purple-900 dark:to-gray-800">Send Message</Button>
             {submitted && <div className="text-green-600 mt-2 text-center">Thank you for contacting!</div>}
           </form>
-          <div className="flex gap-6 mt-8 justify-center">
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 text-purple-700 dark:text-white font-bold">Twitter</a>
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 text-purple-700 dark:text-white font-bold">GitHub</a>
-            <a href="mailto:your@email.com" className="hover:text-pink-500 text-purple-700 dark:text-white font-bold">Email</a>
+          <div className="flex gap-8 mt-8 justify-center">
+            <div className="flex flex-col items-center">
+              <Link href="https://www.facebook.com/am.khi.622679" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+                <FaFacebookF className="w-6 h-6 text-blue-600 dark:text-white" />
+              </Link>
+              <span className="mt-2 text-xs font-semibold text-blue-600 dark:text-white">Facebook</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Link href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+                <FaInstagram className="w-6 h-6 text-pink-500 dark:text-white" />
+              </Link>
+              <span className="mt-2 text-xs font-semibold text-pink-500 dark:text-white">Instagram</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Link href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+                <FaLinkedinIn className="w-6 h-6 text-blue-700 dark:text-white" />
+              </Link>
+              <span className="mt-2 text-xs font-semibold text-blue-700 dark:text-white">LinkedIn</span>
+            </div>
           </div>
         </Card>
       </motion.div>

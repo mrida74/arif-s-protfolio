@@ -4,7 +4,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-export default function ProjectDetailsClient({ project }) {
+export default function ProjectDetailsClient() {
+  const project = {
+    id: "project-one",
+    title: "Project One",
+    description: "A modern web app built with Next.js and Tailwind CSS.",
+    details: "This project showcases a beautiful UI, fast performance, and best practices in React and Next.js.",
+    tech: ["Next.js", "Tailwind CSS"],
+    link: "#",
+    image: "/project1.jpg"
+  }
   if (!project) {
     return <div className="text-center py-20 text-2xl">Project not found.</div>;
   }

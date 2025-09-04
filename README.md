@@ -1,3 +1,76 @@
+# My Portfolio
+
+A modern, production-ready portfolio built with Next.js 14, Tailwind CSS, Framer Motion, and shadcn/ui.
+
+## Features
+- Responsive, animated UI
+- Modular components
+- Dark mode
+- Animated typewriter and watch
+- Project showcase
+- Contact form
+- Utility functions in `lib/utils`
+
+## Folder Structure
+
+```
+my-protfolio/
+│
+├── app/
+│   ├── _layout.js
+│   ├── page.js
+│   ├── globals.css
+│   ├── favicon.ico
+│   ├── fonts/
+│   └── projects/
+│       └── [id].js
+│
+├── components/
+│   ├── About.js
+│   ├── ContactForm.js
+│   ├── Footer.js
+│   ├── Hero.js
+│   ├── Navbar.js
+│   ├── PortfolioLogo.js
+│   ├── PortfolioWatch.js
+│   ├── ProjectCard.js
+│   ├── ProjectDetailsClient.js
+│   ├── Projects.js
+│   ├── ScrollIndicator.js
+│   ├── ThemeToggle.js
+│   └── ui/
+│       ├── button.jsx
+│       ├── card.jsx
+│       └── input.jsx
+│
+├── lib/
+│   └── utils/
+│       ├── typewriter.js
+│       └── cn.js
+│
+├── public/
+│   └── (static assets, images, cv.pdf)
+│
+├── tailwind.config.js
+├── package.json
+├── README.md
+└── ...
+```
+
+## Utilities
+All reusable logic is in `lib/utils` for easy import and testing.
+
+## How to Run
+```bash
+npm install
+npm run dev
+```
+
+## Deployment
+Ready for Vercel. See `.vercel` and environment setup.
+
+## Author
+Afroja Jahan
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
