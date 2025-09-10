@@ -54,7 +54,7 @@ const CircularSkill = ({ name, percent, color }) => {
 
 const About = () => (
   <section id="about" className="py-20 px-4 w-[90%] mx-auto bg-white dark:bg-gray-900 rounded-xl shadow">
-  <motion.h2 className="text-4xl font-extrabold mb-8 text-center bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-purple-400 dark:via-gray-700 dark:to-gray-900" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+  <motion.h2 className="text-4xl font-extrabold mb-8 text-center bg-gradient-to-r from-indigo-600 via-sky-400 to-emerald-400 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-indigo-400 dark:via-gray-700 dark:to-gray-900" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
       About Me
     </motion.h2>
   <motion.p className="mb-10 text-lg text-center text-muted-foreground dark:text-gray-300" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }}>

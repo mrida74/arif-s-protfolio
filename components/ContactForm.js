@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
 
   return (
-  <section id="contact" className="py-20 px-4 flex justify-center items-center min-h-[60vh] bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+  <section id="contact" className="py-20 px-4 flex justify-center items-center min-h-[60vh]  dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="w-full max-w-lg">
         <Card className="p-8 shadow-2xl bg-white/90 dark:bg-gray-900 backdrop-blur rounded-xl">
           <h2 className="text-3xl font-bold mb-6 text-purple-700 dark:text-white text-center">Contact Me</h2>

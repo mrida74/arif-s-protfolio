@@ -19,7 +19,7 @@ const navLinks = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <motion.nav className="sticky top-0 z-50 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-md px-6 py-4">
+    <motion.nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-md px-6 py-4 border-b border-gray-100 dark:border-gray-800">
       <div className="flex items-center justify-between w-full">
         <div className="flex-1 flex items-center justify-between">
           <PortfolioLogo />
@@ -34,12 +34,12 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white dark:text-white font-semibold hover:text-orange-200 dark:hover:text-purple-300 transition-colors duration-200"
+                className="text-gray-600 dark:text-gray-100 font-semibold px-3 py-1 rounded transition-colors duration-200 hover:bg-indigo-50 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-indigo-300"
                 onClick={e => {
                   e.preventDefault();
                   const el = document.querySelector(link.href);
                   if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
+                    el.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
               >
@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <ThemeToggle />
             <Button
-              className="ml-2 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white"
+              className="ml-2 p-2 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-indigo-200"
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >
@@ -68,11 +68,11 @@ const Navbar = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: '100%', opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900/90 z-50 flex flex-col shadow-2xl backdrop-blur-md"
+          className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white/95 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/90 z-50 flex flex-col shadow-2xl backdrop-blur-md border-l border-gray-100 dark:border-gray-800"
         >
           <div className="flex justify-end p-6">
             <button
-              className="p-2 rounded-full bg-white/20 hover:bg-white/40 text-white"
+              className="p-2 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-indigo-200"
               aria-label="Close menu"
               onClick={() => setMenuOpen(false)}
             >
@@ -89,7 +89,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white text-lg font-semibold px-4 py-2 rounded hover:bg-white/10 transition-colors duration-200"
+                className="text-gray-900 dark:text-gray-100 text-lg font-semibold px-4 py-2 rounded transition-colors duration-200 hover:bg-indigo-50 hover:text-indigo-700 dark:hover:bg-gray-800 dark:hover:text-indigo-300"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}
