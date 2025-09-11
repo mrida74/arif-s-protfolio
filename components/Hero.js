@@ -22,7 +22,7 @@ function TypewriterName({ name }) {
 }
 
 const Hero = () => (
-  <section id="home" className="min-h-screen flex items-center justify-center bg-white dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+  <section id="home" className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-16 gap-12 bg-white dark:bg-gray-900 rounded-xl shadow">
     <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-6 py-16 gap-12">
       {/* Left side: Details */}
   <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="flex-1 flex flex-col justify-center items-start text-gray-900 dark:text-gray-100">

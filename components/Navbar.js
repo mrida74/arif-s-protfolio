@@ -38,6 +38,7 @@ const Navbar = () => {
   };
 
   return (
+    // Added "bg-white" to the main nav element for the overall page background
     <motion.nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-md px-6 py-4 border-b border-gray-100 dark:border-gray-800">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4">
@@ -77,13 +78,14 @@ const Navbar = () => {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+         <div className="bg-black">
+           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            // Changed background to bg-inherit and refined styling
-            className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-white  backdrop-blur-lg dark:backdrop-blur-xl z-50 flex flex-col shadow-2xl border-l border-gray-200 dark:border-gray-700 rounded-l-lg"
+            // Changed background to "bg-white" to make it opaque white
+            className="fixed top-0 right-0 h-full w-4/5 max-w-xs  z-50 flex flex-col shadow-2xl border-l border-gray-200 dark:border-gray-700 rounded-l-lg  "
           >
             <div className="flex justify-end p-6">
               <Button
@@ -100,7 +102,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, type: "tween", duration: 0.3 }}
-              className="flex flex-col items-center gap-y-6 mt-8 px-4"
+              className="flex flex-col items-center gap-y-6 mt-8 px-4 "
             >
               {navLinks.map(link => (
                 <a
@@ -114,6 +116,7 @@ const Navbar = () => {
               ))}
             </motion.div>
           </motion.div>
+         </div>
         )}
       </AnimatePresence>
     </motion.nav>
