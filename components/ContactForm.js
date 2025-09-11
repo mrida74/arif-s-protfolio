@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -54,7 +54,7 @@ const ContactForm = () => {
           </form>
           <div className="flex gap-8 mt-8 justify-center">
             <div className="flex flex-col items-center">
-              <Link href="https://www.facebook.com/am.khi.622679" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+              <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
                 <FaFacebookF className="w-6 h-6 text-blue-600 dark:text-white" />
               </Link>
               <span className="mt-2 text-xs font-semibold text-blue-600 dark:text-white">Facebook</span>
@@ -66,9 +66,12 @@ const ContactForm = () => {
               <span className="mt-2 text-xs font-semibold text-pink-500 dark:text-white">Instagram</span>
             </div>
             <div className="flex flex-col items-center">
-              <Link href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+              <Link href="https://linkedin.com/in/arif-mrida" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
                 <FaLinkedinIn className="w-6 h-6 text-blue-700 dark:text-white" />
               </Link>
+              <Link href="https://github.com/mrida74" target="_blank" rel="noopener noreferrer" className="text-gray-900 dark:text-white hover:text-gray-700 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg">
+                <FaGithub className="w-5 h-5 md:w-8 md:h-8" />
+            </Link>
               <span className="mt-2 text-xs font-semibold text-blue-700 dark:text-white">LinkedIn</span>
             </div>
           </div>
