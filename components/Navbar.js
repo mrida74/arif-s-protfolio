@@ -6,7 +6,7 @@ import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import PortfolioLogo from "@/components/PortfolioLogo";
 import PortfolioWatch from "@/components/PortfolioWatch";
 import { Button } from "./ui/button";
-
+import MobileNav from "./MobileNav";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -14,17 +14,18 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
 
@@ -32,7 +33,7 @@ const Navbar = () => {
     e.preventDefault();
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.scrollIntoView({ behavior: "smooth" });
     }
     setMenuOpen(false);
   };
@@ -48,7 +49,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <div className="hidden md:flex gap-6 items-center">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -76,49 +77,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-         <div className="bg-black">
-           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            // Changed background to "bg-white" to make it opaque white
-            className="fixed top-0 right-0 h-full w-4/5 max-w-xs  z-50 flex flex-col shadow-2xl border-l border-gray-200 dark:border-gray-700 rounded-l-lg  "
-          >
-            <div className="flex justify-end p-6">
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Close menu"
-                onClick={() => setMenuOpen(false)}
-                className="hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                <Cross1Icon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-              </Button>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, type: "tween", duration: 0.3 }}
-              className="flex flex-col items-center gap-y-6 mt-8 px-4 "
-            >
-              {navLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="w-full text-center text-gray-800 dark:text-gray-100 text-lg font-medium py-3 rounded-md transition-all duration-200 hover:bg-indigo-100 dark:hover:bg-gray-700 hover:text-indigo-700 dark:hover:text-indigo-300"
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </motion.div>
-          </motion.div>
-         </div>
-        )}
-      </AnimatePresence>
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <MobileNav setMenuOpen={setMenuOpen} />
+      )}
     </motion.nav>
   );
 };

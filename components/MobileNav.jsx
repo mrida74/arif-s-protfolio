@@ -1,41 +1,45 @@
-import * as React from "react";
-import Link from "next/link";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import React from "react";
 
-import { cn } from "@/lib/utils/cn";
-// import { useLockBody } from "@/hooks/use-lock-body";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+const navLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
-export function MobileNav({ items}) {
-  
-
+function MobileNav({ setMenuOpen }) {
   return (
-    <div
-      className={cn(
-        "fixed inset-0 top-16 z-30 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in slide-in-from-bottom-80 lg:hidden"
-      )}
-    >
-      <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md border">
-        <nav className="grid grid-flow-row auto-rows-max text-sm">
-          {items.map((item, index) => (
-            <Link
-              key={index}
-              href={item.disabled ? "#" : item.href}
-              className={cn(
-                "flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline",
-                item.disabled && "cursor-not-allowed opacity-60"
-              )}
-            >
-              {item.title}
-            </Link>
-          ))}
-        </nav>
-        
+    <motion.div 
+     initial={{ x: '100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: '100%', opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+    className="fixed top-0 right-0 h-screen bg-white dark:bg-gray-900 w-1/2 flex flex-col z-50">
+      <div className="flex justify-end p-4">
+        <button
+          className="p-2 rounded-full bg-black/20 hover:bg-black/40 dark:bg-white/20 dark:hover:bg-white/40 text-white"
+          aria-label="Close menu"
+          onClick={() => setMenuOpen(false)}
+        >
+          <Cross1Icon className="w-6 h-6" />
+        </button>
       </div>
-    </div>
+      <div className="flex flex-col  gap-4">
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="text-black dark:text-white w-full text-center text-lg font-semibold px-4 py-2 rounded hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-200"
+            onClick={() => setMenuOpen(false)}
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+    </motion.div>
   );
 }
+
+export default MobileNav;
